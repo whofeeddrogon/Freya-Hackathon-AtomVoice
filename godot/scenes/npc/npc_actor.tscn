@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c6wj2i0fsg5eg"]
+
+[ext_resource type="Script" uid="uid://btr5s7kj256l0" path="res://scenes/npc/npc_actor.gd" id="1_npc"]
+[ext_resource type="PackedScene" uid="uid://b0ns0baqhtqmr" path="res://assets/KayKit_Prototype_Bits_1.1_FREE/Assets/gltf/Dummy_Base.gltf" id="2_omw62"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_body"]
+radius = 0.4
+height = 1.8
+
+[node name="NPCAgent" type="CharacterBody3D" unique_id=842531515]
+script = ExtResource("1_npc")
+
+[node name="Dummy_Base2" parent="." unique_id=1911788930 instance=ExtResource("2_omw62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7547082, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1167763992]
+shape = SubResource("CapsuleShape3D_body")
+
+[node name="VoicePlayer" type="AudioStreamPlayer3D" parent="." unique_id=187605419]
+unit_size = 4.0
+max_distance = 24.0
+
+

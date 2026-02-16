@@ -1,0 +1,11 @@
+# Docker imajını küçültmek için gereksiz dosyaları hariç tutuyoruz
+venv/
+.env
+__pycache__/
+*.wav
+*.json
+!knowledgebase.json
+!warmup.wav
+.git/
+.gitignore
+.dockerignore

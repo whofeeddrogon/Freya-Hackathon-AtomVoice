@@ -1,0 +1,422 @@
+[gd_scene format=3 uid="uid://c2e1gtsonup16"]
+
+[ext_resource type="Script" uid="uid://dr37j7o4o2l4d" path="res://scenes/dealer_voice_mvp.gd" id="1_demo"]
+[ext_resource type="Script" uid="uid://tty3522hy74w" path="res://addons/atom_voice/voice_system.gd" id="2_voice_system"]
+[ext_resource type="Script" uid="uid://cbfs6doh2qeqe" path="res://addons/atom_voice/voice_recorder.gd" id="3_voice_recorder"]
+[ext_resource type="PackedScene" uid="uid://c6wj2i0fsg5eg" path="res://scenes/npc/npc_actor.tscn" id="4_npc_actor"]
+[ext_resource type="PackedScene" uid="uid://6g5hwi50c84o" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/floor_foundation_front.gltf" id="5_p3shq"]
+[ext_resource type="PackedScene" uid="uid://0m35ldtp2oap" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall.gltf" id="6_uo378"]
+[ext_resource type="PackedScene" uid="uid://jjpr8kwkmyl1" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner.gltf" id="7_2uevg"]
+[ext_resource type="PackedScene" uid="uid://d23rb8wffj1qi" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/sword_shield_broken.gltf" id="8_httxw"]
+[ext_resource type="PackedScene" uid="uid://dph0lu1j3tw" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chair.gltf" id="9_wbxtq"]
+[ext_resource type="PackedScene" uid="uid://dt5cb7e0iyifo" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_shield_white.gltf" id="10_pw82n"]
+[ext_resource type="PackedScene" uid="uid://dbm1m5m7wegyn" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_small_decorated.gltf" id="11_ttn4m"]
+[ext_resource type="PackedScene" uid="uid://b7ynxcpibotrb" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keg_decorated.gltf" id="12_g2wwx"]
+[ext_resource type="PackedScene" uid="uid://bgy1iwnggx16x" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_long.gltf" id="13_imhgt"]
+[ext_resource type="PackedScene" uid="uid://ce2xg3i48y2o5" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/stool.gltf" id="14_y7g2y"]
+[ext_resource type="PackedScene" uid="uid://b87unyy5vdupk" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/torch_mounted.gltf" id="15_mlqtm"]
+[ext_resource type="PackedScene" uid="uid://b8j3ib12t47pu" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/shelf_small_candles.gltf" id="16_y6i5v"]
+[ext_resource type="PackedScene" uid="uid://c45408ymbyj1s" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chest.gltf" id="17_4hpyr"]
+[ext_resource type="PackedScene" uid="uid://xkpye24dotpp" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/pillar.gltf" id="18_51fdk"]
+[ext_resource type="PackedScene" uid="uid://df636rgy6eni3" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/coin_stack_small.gltf" id="19_httxw"]
+[ext_resource type="PackedScene" uid="uid://bdlg5bkaddmmt" path="res://assets/gltf/bow_withString.gltf" id="19_imhgt"]
+[ext_resource type="PackedScene" uid="uid://wly8vothe6bj" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/coin_stack_medium.gltf" id="20_wbxtq"]
+[ext_resource type="PackedScene" uid="uid://b5ovxnkhe2uev" path="res://assets/gltf/quiver.gltf" id="20_y7g2y"]
+[ext_resource type="PackedScene" uid="uid://b57uignkrbwab" path="res://assets/gltf/spellbook_open.gltf" id="21_mlqtm"]
+[ext_resource type="PackedScene" uid="uid://c3uxf5x5gc2vf" path="res://assets/gltf/spellbook_closed.gltf" id="22_y6i5v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_imhgt"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_y7g2y"]
+sky_material = SubResource("ProceduralSkyMaterial_imhgt")
+
+[sub_resource type="Environment" id="Environment_mlqtm"]
+background_mode = 2
+sky = SubResource("Sky_y7g2y")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="DealerVoiceMVP" type="Node3D" unique_id=1422750071]
+script = ExtResource("1_demo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=326194373]
+environment = SubResource("Environment_mlqtm")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=454570927]
+transform = Transform3D(1, 0, 0, 0, 0.9816272, 0.19080904, 0, -0.19080904, 0.9816272, 9.888199, 2.1275206, 6.6205635)
+current = true
+fov = 55.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1473088325]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 4, 0)
+visible = false
+light_energy = 1.2
+
+[node name="VoiceSystem" type="Node" parent="." unique_id=730099805]
+script = ExtResource("2_voice_system")
+auto_bind_recorder = false
+auto_push_story_on_ready = false
+
+[node name="VoiceRecorder" type="Node" parent="." unique_id=1376330974]
+script = ExtResource("3_voice_recorder")
+
+[node name="MicPlayer" type="AudioStreamPlayer" parent="VoiceRecorder" unique_id=713003783]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="VoiceRecorder" unique_id=1248709318]
+visible = false
+
+[node name="Panel" type="PanelContainer" parent="VoiceRecorder/CanvasLayer" unique_id=1408714199]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 256.0
+offset_bottom = 88.0
+
+[node name="VBox" type="VBoxContainer" parent="VoiceRecorder/CanvasLayer/Panel" unique_id=1495030978]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MicLabel" type="Label" parent="VoiceRecorder/CanvasLayer/Panel/VBox" unique_id=2115305412]
+layout_mode = 2
+text = "MIC OFF"
+
+[node name="MicLevelBar" type="ProgressBar" parent="VoiceRecorder/CanvasLayer/Panel/VBox" unique_id=1122529471]
+layout_mode = 2
+
+[node name="NpcActorA" parent="." unique_id=301241358 instance=ExtResource("4_npc_actor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.6942264, -10)
+npc_id = "npc_ali"
+display_name = "Ali"
+interaction_radius = 20.0
+start_instruction = "Selam, elimde satilik urun var. Pazarliga acigim."
+base_price = 1200.0
+min_price = 800.0
+current_price = 1200.0
+
+[node name="NpcActorB" parent="." unique_id=437799467 instance=ExtResource("4_npc_actor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -0.6942264, -10)
+npc_id = "npc_seda"
+display_name = "Seda"
+interaction_radius = 20.0
+start_instruction = "Merhaba, ikinci urunle geldim. Fiyat konusunda konusabiliriz."
+base_price = 1500.0
+min_price = 950.0
+current_price = 1500.0
+
+[node name="ApproachTarget" type="Node3D" parent="." unique_id=540591466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=979097233]
+
+[node name="Panel" type="PanelContainer" parent="UI" unique_id=632664579]
+offset_right = 627.0
+offset_bottom = 476.0
+
+[node name="Root" type="VBoxContainer" parent="UI/Panel" unique_id=72483063]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="UI/Panel/Root" unique_id=1310224634]
+layout_mode = 2
+text = "Dealer Voice MVP - Press \"V\" key to PTT (Push To Talk)"
+
+[node name="StateLabel" type="Label" parent="UI/Panel/Root" unique_id=1099037242]
+layout_mode = 2
+text = "State: idle"
+
+[node name="TurnLabel" type="Label" parent="UI/Panel/Root" unique_id=1421011125]
+layout_mode = 2
+text = "Turn: idle"
+
+[node name="QueueLabel" type="Label" parent="UI/Panel/Root" unique_id=309681735]
+layout_mode = 2
+text = "Goal: buy items cheap"
+autowrap_mode = 2
+
+[node name="LatencyLabel" type="Label" parent="UI/Panel/Root" unique_id=1919029029]
+layout_mode = 2
+text = "Latency (first audio): -"
+
+[node name="PriceLabel" type="Label" parent="UI/Panel/Root" unique_id=2009908512]
+layout_mode = 2
+text = "Current Price: -"
+
+[node name="ActionLabel" type="Label" parent="UI/Panel/Root" unique_id=208726001]
+layout_mode = 2
+text = "Actions: -"
+autowrap_mode = 2
+
+[node name="NPCText" type="RichTextLabel" parent="UI/Panel/Root" unique_id=441655281]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+bbcode_enabled = true
+text = "NPC text will appear here..."
+fit_content = true
+
+[node name="Buttons" type="HBoxContainer" parent="UI/Panel/Root" unique_id=411585457]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StartConversation" type="Button" parent="UI/Panel/Root/Buttons" unique_id=1244818240]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start Conversation"
+
+[node name="HoldToTalk" type="Button" parent="UI/Panel/Root/Buttons" unique_id=38299294]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "PTT Key: hold 'ptt' action"
+
+[node name="Map" type="Node3D" parent="." unique_id=1988551484]
+
+[node name="floor_foundation_front2" parent="Map" unique_id=1208746245 instance=ExtResource("5_p3shq")]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 17.817585, -3.4245527, -10.672)
+
+[node name="floor_foundation_front3" parent="Map" unique_id=1243791679 instance=ExtResource("5_p3shq")]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 17.817585, 6.1815233, -10.672)
+
+[node name="wall2" parent="Map" unique_id=751569612 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.925376, -1.4451144, -12.703518)
+
+[node name="wall7" parent="Map" unique_id=2047267419 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9888716, -1.4451144, -12.703518)
+
+[node name="wall8" parent="Map" unique_id=428759543 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.167297, -1.4347818, -8.637339)
+
+[node name="wall9" parent="Map" unique_id=512120778 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.167297, -1.4347818, -4.669428)
+
+[node name="wall10" parent="Map" unique_id=286345181 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.167297, -1.4347818, -0.693068)
+
+[node name="wall11" parent="Map" unique_id=232945335 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.167297, -1.4347818, 3.2748427)
+
+[node name="wall12" parent="Map" unique_id=856822946 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 29.611336, -1.4347818, -8.637339)
+
+[node name="wall13" parent="Map" unique_id=1698147831 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 29.611336, -1.4347818, -4.669428)
+
+[node name="wall14" parent="Map" unique_id=1547869006 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 29.611336, -1.4347818, -0.693068)
+
+[node name="wall15" parent="Map" unique_id=1163475181 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 29.611336, -1.4347818, 3.2748427)
+
+[node name="wall3" parent="Map" unique_id=1299852284 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.898385, -1.4451144, -12.703518)
+
+[node name="wall4" parent="Map" unique_id=1933814596 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.824131, -1.4451144, -12.703518)
+
+[node name="wall5" parent="Map" unique_id=1004261584 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.722313, -1.4451144, -12.703518)
+
+[node name="wall6" parent="Map" unique_id=348500798 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.66982, -1.4451144, -12.703518)
+
+[node name="wall_corner2" parent="Map" unique_id=806118427 instance=ExtResource("7_2uevg")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.0698857, -1.4304013, -12.678066)
+
+[node name="wall_corner3" parent="Map" unique_id=1226231570 instance=ExtResource("7_2uevg")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 29.634989, -1.4304013, -12.678066)
+
+[node name="wall16" parent="Map" unique_id=1656989682 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.925376, 2.2290227, -12.703518)
+
+[node name="wall17" parent="Map" unique_id=999348595 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9888716, 2.2290227, -12.703518)
+
+[node name="wall18" parent="Map" unique_id=684565391 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.167297, 2.2393553, -8.637339)
+
+[node name="wall19" parent="Map" unique_id=967631219 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.167297, 2.2393553, -4.669428)
+
+[node name="wall20" parent="Map" unique_id=74829857 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.167297, 2.2393553, -0.693068)
+
+[node name="wall21" parent="Map" unique_id=2144858850 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.167297, 2.2393553, 3.2748427)
+
+[node name="wall22" parent="Map" unique_id=88912004 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 29.611336, 2.2393553, -8.637339)
+
+[node name="wall23" parent="Map" unique_id=118760304 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 29.611336, 2.2393553, -4.669428)
+
+[node name="wall24" parent="Map" unique_id=967880258 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 29.611336, 2.2393553, -0.693068)
+
+[node name="wall25" parent="Map" unique_id=821248415 instance=ExtResource("6_uo378")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 29.611336, 2.2393553, 3.2748427)
+
+[node name="wall26" parent="Map" unique_id=796282361 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.898385, 2.2290227, -12.703518)
+
+[node name="wall27" parent="Map" unique_id=1835521106 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.824131, 2.2290227, -12.703518)
+
+[node name="wall28" parent="Map" unique_id=852326318 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.722313, 2.2290227, -12.703518)
+
+[node name="wall29" parent="Map" unique_id=399698418 instance=ExtResource("6_uo378")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.66982, 2.2290227, -12.703518)
+
+[node name="wall_corner4" parent="Map" unique_id=1119826459 instance=ExtResource("7_2uevg")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.0698857, 2.2437358, -12.678066)
+
+[node name="wall_corner5" parent="Map" unique_id=1355190333 instance=ExtResource("7_2uevg")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 29.634989, 2.2437358, -12.678066)
+
+[node name="sword_shield_broken2" parent="Map" unique_id=464605642 instance=ExtResource("8_httxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2057295, 0.6354399, -12.307705)
+
+[node name="sword_shield_broken3" parent="Map" unique_id=459993652 instance=ExtResource("8_httxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.312721, 0.6354399, -12.307705)
+
+[node name="sword_shield_broken4" parent="Map" unique_id=1861591566 instance=ExtResource("8_httxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.733545, 0.6354399, -12.307705)
+
+[node name="sword_shield_broken5" parent="Map" unique_id=626931221 instance=ExtResource("8_httxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.047714, 0.6354399, -12.307705)
+
+[node name="sword_shield_broken6" parent="Map" unique_id=1514000783 instance=ExtResource("8_httxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.973629, 0.6354399, -12.307705)
+
+[node name="sword_shield_broken7" parent="Map" unique_id=761506588 instance=ExtResource("8_httxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.035082, 0.6354399, -12.307705)
+
+[node name="chair2" parent="Map" unique_id=2112588317 instance=ExtResource("9_wbxtq")]
+transform = Transform3D(0.519012, 0, 0.85476696, 0, 1, 0, -0.85476696, 0, 0.519012, 11.66821, -1.4736962, -11.9177)
+
+[node name="chair3" parent="Map" unique_id=1332410975 instance=ExtResource("9_wbxtq")]
+transform = Transform3D(-0.33545154, 0, 0.9420575, 0, 1, 0, -0.9420575, 0, -0.33545154, 18.740868, -1.4736962, -11.9177)
+
+[node name="banner_shield_white2" parent="Map" unique_id=1842938709 instance=ExtResource("10_pw82n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.091774, -1.2701173, -12.277689)
+
+[node name="banner_shield_white3" parent="Map" unique_id=691671300 instance=ExtResource("10_pw82n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.91317, -1.2701173, -12.277689)
+
+[node name="box_small_decorated2" parent="Map" unique_id=683943622 instance=ExtResource("11_ttn4m")]
+transform = Transform3D(0.99134207, 0, 0.13130483, 0, 1, 0, -0.13130483, 0, 0.99134207, 8.618052, -1.4599483, -11.49979)
+
+[node name="box_small_decorated3" parent="Map" unique_id=424500739 instance=ExtResource("11_ttn4m")]
+transform = Transform3D(0.89641684, 0, -0.44321194, 0, 1, 0, 0.44321194, 0, 0.89641684, 21.801435, -1.4599483, -11.49979)
+
+[node name="keg_decorated2" parent="Map" unique_id=1426371448 instance=ExtResource("12_g2wwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.859001, -1.4895205, -11.395656)
+
+[node name="table_long2" parent="Map" unique_id=1727416615 instance=ExtResource("13_imhgt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.058603, -1.491288, -8.018329)
+
+[node name="table_long3" parent="Map" unique_id=1645471752 instance=ExtResource("13_imhgt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19.980412, -1.491288, -8.018329)
+
+[node name="stool2" parent="Map" unique_id=272289031 instance=ExtResource("14_y7g2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4684305, -1.4411516, -7.964337)
+
+[node name="stool3" parent="Map" unique_id=634697519 instance=ExtResource("14_y7g2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.52542, -1.4411516, -7.964337)
+
+[node name="stool4" parent="Map" unique_id=82085496 instance=ExtResource("14_y7g2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.456493, -1.4411516, -7.964337)
+
+[node name="stool5" parent="Map" unique_id=970347032 instance=ExtResource("14_y7g2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.689426, -1.4411516, -7.964337)
+
+[node name="torch_mounted2" parent="Map" unique_id=377565078 instance=ExtResource("15_mlqtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.442117, 1.018885, -12.55199)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/torch_mounted2" unique_id=184717068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46317542, 0.46004105)
+light_color = Color(1, 0.5372549, 0, 1)
+
+[node name="torch_mounted3" parent="Map" unique_id=144131002 instance=ExtResource("15_mlqtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.756845, 1.018885, -12.55199)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Map/torch_mounted3" unique_id=935864461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020561218, 0.46317542, 0.46004105)
+light_color = Color(1, 0.5372549, 0, 1)
+
+[node name="torch_mounted4" parent="Map" unique_id=2032597486 instance=ExtResource("15_mlqtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.88419, 1.018885, -7.681473)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Map/torch_mounted4" unique_id=1186044448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020561218, 0.46317542, 0.46004105)
+light_color = Color(1, 0.5372549, 0, 1)
+
+[node name="torch_mounted5" parent="Map" unique_id=365178060 instance=ExtResource("15_mlqtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.88419, 1.018885, -2.8738756)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Map/torch_mounted5" unique_id=161817621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020561218, 0.46317542, 0.46004105)
+light_color = Color(1, 0.5372549, 0, 1)
+
+[node name="torch_mounted6" parent="Map" unique_id=1295594300 instance=ExtResource("15_mlqtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.88419, 1.018885, 1.0851603)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Map/torch_mounted6" unique_id=172736991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020561218, 0.46317542, 0.46004105)
+light_color = Color(1, 0.5372549, 0, 1)
+
+[node name="shelf_small_candles2" parent="Map" unique_id=336779823 instance=ExtResource("16_y6i5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.51539, 0, -12.179824)
+
+[node name="shelf_small_candles3" parent="Map" unique_id=1613062740 instance=ExtResource("16_y6i5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.753363, 0, -12.179824)
+
+[node name="chest2" parent="Map" unique_id=636118269 instance=ExtResource("17_4hpyr")]
+transform = Transform3D(0.8186712, 0, 0.5742625, 0, 1, 0, -0.5742625, 0, 0.8186712, 6.6371, -1.4417264, -10.759144)
+
+[node name="pillar2" parent="Map" unique_id=1034502103 instance=ExtResource("18_51fdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.015098, -1.4549968, -8.184975)
+
+[node name="pillar3" parent="Map" unique_id=1484920372 instance=ExtResource("18_51fdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.015098, 2.1426697, -8.184975)
+
+[node name="pillar4" parent="Map" unique_id=2106954035 instance=ExtResource("18_51fdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.015098, -1.4549968, -3.4147568)
+
+[node name="pillar5" parent="Map" unique_id=1687480130 instance=ExtResource("18_51fdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.015098, 2.1426697, -3.4147568)
+
+[node name="pillar6" parent="Map" unique_id=2116308585 instance=ExtResource("18_51fdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.015098, -1.4549968, 0.5217581)
+
+[node name="pillar7" parent="Map" unique_id=367224501 instance=ExtResource("18_51fdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.015098, 2.1426697, 0.5217581)
+
+[node name="bow_withString2" parent="Map" unique_id=407387213 instance=ExtResource("19_imhgt")]
+transform = Transform3D(0.6136928, 0, 0.7895449, 0, 1, 0, -0.7895449, 0, 0.6136928, 10.367912, -0.46772778, -8.22699)
+
+[node name="quiver2" parent="Map" unique_id=803288965 instance=ExtResource("20_y7g2y")]
+transform = Transform3D(0.53637195, -0.84069, 0.07446762, 0, 0.088233694, 0.9960998, -0.8439817, -0.53428, 0.047326077, 9.899331, -0.40640378, -7.653938)
+
+[node name="spellbook_open2" parent="Map" unique_id=1185660616 instance=ExtResource("21_mlqtm")]
+transform = Transform3D(1, 0, 0, 0, -0.03160253, 0.99950045, 0, -0.99950045, -0.03160253, 20.02954, -0.4791366, -7.946757)
+
+[node name="spellbook_closed2" parent="Map" unique_id=1934975362 instance=ExtResource("22_y6i5v")]
+transform = Transform3D(0.020648345, 0.8599385, -0.5099799, -0.9997669, 0.01453764, -0.015965432, -0.0063153985, 0.51019067, 0.86003834, 21.256456, -0.3790717, -8.332417)
+
+[node name="spellbook_closed3" parent="Map" unique_id=1732692840 instance=ExtResource("22_y6i5v")]
+transform = Transform3D(0.01831142, 0.96265554, -0.2701093, -0.9997669, 0.014537641, -0.015965434, -0.011442477, 0.27033865, 0.9626975, 21.256456, -0.1296246, -8.332417)
+
+[node name="coin_stack_small2" parent="Map" unique_id=1811847199 instance=ExtResource("19_httxw")]
+transform = Transform3D(0.5843205, 0, 0.811523, 0, 1, 0, -0.811523, 0, 0.5843205, 8.713274, -0.49102044, -8.516323)
+
+[node name="coin_stack_medium2" parent="Map" unique_id=1895061733 instance=ExtResource("20_wbxtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.550749, -0.5165828, -8.651642)
+
+[node name="NpcA" type="Marker3D" parent="." unique_id=86189213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.899734, 0.41678715, -6.803601)
+
+[node name="NpcB" type="Marker3D" parent="." unique_id=944582606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.443157, 0.41678715, -6.691915)
+
+[connection signal="pressed" from="UI/Panel/Root/Buttons/StartConversation" to="." method="_on_start_pressed"]

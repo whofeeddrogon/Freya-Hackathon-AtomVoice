@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://chahdgtfdodgs"]
+
+[ext_resource type="Script" uid="uid://djhjihe8px1c5" path="res://addons/atom_voice/atom_voice_tool_dock.gd" id="1_onoaq"]
+
+[node name="Control" type="Control" unique_id=556360563]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_onoaq")
+
+[node name="Root" type="MarginContainer" parent="." unique_id=1110448894]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="HSplitContainer" parent="Root" unique_id=586344425]
+layout_mode = 2
+
+[node name="Left" type="VBoxContainer" parent="Root/Content" unique_id=1794207179]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftHeader" type="Label" parent="Root/Content/Left" unique_id=1905703105]
+layout_mode = 2
+text = "NPC List"
+
+[node name="FilterEdit" type="LineEdit" parent="Root/Content/Left" unique_id=594505113]
+layout_mode = 2
+placeholder_text = "Search by id or name..."
+
+[node name="NPCList" type="ItemList" parent="Root/Content/Left" unique_id=1259661999]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 2
+item_0/text = "Ali"
+item_1/text = "Mert"
+
+[node name="LeftButtons" type="HBoxContainer" parent="Root/Content/Left" unique_id=822258375]
+layout_mode = 2
+
+[node name="AddNPC" type="Button" parent="Root/Content/Left/LeftButtons" unique_id=1480815839]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add NPC"
+
+[node name="RemoveNPC" type="Button" parent="Root/Content/Left/LeftButtons" unique_id=2055868332]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Remove NPC"
+
+[node name="Right" type="VBoxContainer" parent="Root/Content" unique_id=1842183091]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightHeader" type="Label" parent="Root/Content/Right" unique_id=182966083]
+layout_mode = 2
+text = "Story & NPC Details"
+
+[node name="MainStoryLabel" type="Label" parent="Root/Content/Right" unique_id=52521909]
+layout_mode = 2
+text = "main_story"
+
+[node name="MainStoryEdit" type="TextEdit" parent="Root/Content/Right" unique_id=4352317]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rolün: Sen, ikinci el eşya satmaya gelen bir NPC’sin. Oyuncu ise dükkân sahibi ve pazarlık yapıyor.
+Amaç: Eşyayı satmak istiyorsun ama minimum fiyatını (rezerv/alt limit) açıkça söylememelisin. Pazarlık boyunca tutarlı davran; kişiliğin, hedeflerin ve içinde bulunduğun durum cümlelerini ve hamlelerini belirlesin.
+
+Çıktı formatı (zorunlu):
+Her mesajın iki parçadan oluşmalı:
+NPC’nin söylediği doğal diyalog (1–3 cümle, kısa ve gerçekçi)
+NPC her zaman teklif ettiği \"price\" ı cümlenin sonunda söyler.
+En altta tek satır: action: <ACTION_NAME> | price: <NUMBER> | mood: <TAG> | note: <KISA_NOT>
+
+Kurallar:
+
+Asla “minimumum X”, “alt limitim X”, “son fiyatım X” gibi net alt limit açıklama.
+Bunun yerine belirsiz ifadeler kullan: “Daha aşağısı zor”, “Beni çok sıkıştırma”, “Biraz daha insaf”, “Buna değer” vb.
+Fiyat pazarlığı action ile ilerler. Konuşma sadece roleplay değil: her turda niyetini action ile belirt.
+price alanı her turda “şu an istediğin fiyat”ı temsil eder (NPC’nin anlık talebi).
+Oyuncu teklifine göre:
+Çok düşükse: reddet / terslen / zaman baskısı kur / karşı teklif ver
+Mantıklıysa: küçük indirim / şartlı indirim / aksesuar ekleme gibi hamleler
+NPC, kendi hedeflerine göre bazen:
+blöf yapabilir (ama abartıp oyunu bozmasın),
+“aciliyet” hissi verebilir,
+“duygusal bağ” kurabilir,
+“paket” önerebilir (oyun/kol/şarj aleti).
+Diyalog her zaman oyuncuyu yönlendirmeli: “Sen ne verirsin?”, “Kaça alırsın?”, “Hemen nakit mi?” gibi.
+
+Önerilen ACTION seti (genel):
+
+greet (selamla / giriş)
+pitch (ürünü öv / durumunu anlat)
+haggle (pazarlık / karşı teklif)
+agree (anlaşmayı kabul et)
+reject (teklifi reddet)
+leave (masadan kalk / çık)"
+wrap_mode = 1
+
+[node name="NpcDetailsLabel" type="Label" parent="Root/Content/Right" unique_id=1850525760]
+layout_mode = 2
+text = "npc_details"
+
+[node name="FormScroll" type="ScrollContainer" parent="Root/Content/Right" unique_id=1475674034]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Form" type="VBoxContainer" parent="Root/Content/Right/FormScroll" unique_id=9546861]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="IdentityGrid" type="GridContainer" parent="Root/Content/Right/FormScroll/Form" unique_id=1363423610]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="IdLabel" type="Label" parent="Root/Content/Right/FormScroll/Form/IdentityGrid" unique_id=980976510]
+layout_mode = 2
+text = "npc_id"
+
+[node name="IdEdit" type="LineEdit" parent="Root/Content/Right/FormScroll/Form/IdentityGrid" unique_id=1638554904]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="Root/Content/Right/FormScroll/Form/IdentityGrid" unique_id=506419241]
+layout_mode = 2
+text = "display_name"
+
+[node name="NameEdit" type="LineEdit" parent="Root/Content/Right/FormScroll/Form/IdentityGrid" unique_id=125681895]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackstoryLabel" type="Label" parent="Root/Content/Right/FormScroll/Form" unique_id=707806217]
+layout_mode = 2
+text = "backstory"
+
+[node name="BackstoryEdit" type="TextEdit" parent="Root/Content/Right/FormScroll/Form" unique_id=1225183915]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+scroll_fit_content_height = true
+wrap_mode = 1
+
+[node name="PersonalityLabel" type="Label" parent="Root/Content/Right/FormScroll/Form" unique_id=502289281]
+layout_mode = 2
+text = "personality"
+
+[node name="PersonalityEdit" type="TextEdit" parent="Root/Content/Right/FormScroll/Form" unique_id=1443381016]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+scroll_fit_content_height = true
+wrap_mode = 1
+
+[node name="GoalsLabel" type="Label" parent="Root/Content/Right/FormScroll/Form" unique_id=851922589]
+layout_mode = 2
+text = "goals"
+
+[node name="GoalsEdit" type="TextEdit" parent="Root/Content/Right/FormScroll/Form" unique_id=974558364]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+scroll_fit_content_height = true
+wrap_mode = 1
+
+[node name="SecretsLabel" type="Label" parent="Root/Content/Right/FormScroll/Form" unique_id=407876700]
+layout_mode = 2
+text = "secrets"
+
+[node name="SecretsEdit" type="TextEdit" parent="Root/Content/Right/FormScroll/Form" unique_id=559048332]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+scroll_fit_content_height = true
+wrap_mode = 1
+
+[node name="Save" type="Button" parent="Root/Content/Right" unique_id=344591149]
+layout_mode = 2
+text = "Save Resource"

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: atom-voice-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./knowledgebase.json:/app/knowledgebase.json
+      - ./warmup.wav:/app/warmup.wav
+    restart: unless-stopped
