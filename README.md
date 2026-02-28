@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Award](https://img.shields.io/badge/Rank-2nd%20Place-gold?style=for-the-badge&logo=award)](https://www.linkedin.com/posts/berkaybicer_our-team-atom-voice-ai-secured-2nd-place-activity-7429250378791010305-hC31)
-[![Powered by Freya](https://img.shields.io/badge/Powered%20by-Freya%20Voice%20AI-purple?style=for-the-badge)]([https://www.freyavoice.ai/tr](https://freyavoice.ai/tr))
+[![Powered by Freya](https://img.shields.io/badge/Powered%20by-Freya%20Voice%20AI-purple?style=for-the-badge)](https://freyavoice.ai/tr)
 [![Powered by fal.ai](https://img.shields.io/badge/Powered%20by-fal.ai-orange?style=for-the-badge)](https://fal.ai)
 
 </div>
